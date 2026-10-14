@@ -1,11 +1,11 @@
 <?php
+/**
+ * Middleware / Verificação de Autenticação
+ */
+require_once __DIR__ . "/session.php";
 
-require_once __DIR__ . "/../config/session.php";
-
-if (!isset($_SESSION["user_id"])) {
-
+if (!isLoggedIn()) {
+    setFlash('warning', 'Por favor, inicie sessão para aceder a esta página.');
     header("Location: login.php");
-
     exit();
-
 }
