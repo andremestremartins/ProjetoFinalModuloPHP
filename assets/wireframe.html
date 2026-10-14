@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Responsive zoo website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        :root {
+            --main: #ff8a2b;
+            --dark: #2d5a3d;
+            --black: #222;
+            --light: #777;
+            --bg: #fff7ee;
+            --shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .12)
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .2s linear
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scroll-padding-top: 7rem
+        }
+
+        body {
+            background: var(--bg);
+            overflow-x: hidden
+        }
+
+        section {
+            padding: 6rem 9%
+        }
+
+        img {
+            max-width: 100%
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: .9rem 3rem;
+            font-size: 1.7rem;
+            color: #fff;
+            background: var(--main);
+            border-radius: 5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow)
+        }
+
+        .btn:hover {
+            background: var(--dark);
+            letter-spacing: .1rem
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 4rem;
+            color: var(--dark);
+            margin-bottom: 3rem
+        }
+
+        .deco-title {
+            text-align: center;
+            font-size: 4rem;
+            color: var(--dark);
+            margin-bottom: 3rem
+        }
+
+        .deco-title::after {
+            content: '';
+            display: block;
+            width: 8rem;
+            height: .4rem;
+            background: var(--main);
+            margin: .8rem auto 0;
+            border-radius: 1rem
+        }
+
+        .title {
+            font-size: 3rem;
+            color: var(--black)
+        }
+
+        /* header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #fff;
+            box-shadow: var(--shadow);
+            padding: 1.8rem 9%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .header .logo {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--dark)
+        }
+
+        .header .logo i {
+            color: var(--main)
+        }
+
+        .header .navbar a {
+            font-size: 1.7rem;
+            margin: 0 1.2rem;
+            color: var(--black)
+        }
+
+        .header .navbar a:hover,
+        .header .navbar a.active {
+            color: var(--main)
+        }
+
+        .header .icons div {
+            display: inline-block;
+            height: 4.5rem;
+            width: 4.5rem;
+            line-height: 4.5rem;
+            font-size: 2rem;
+            text-align: center;
+            border-radius: 50%;
+            background: var(--bg);
+            color: var(--dark);
+            cursor: pointer;
+            margin-left: .5rem
+        }
+
+        .header .icons div:hover {
+            background: var(--main);
+            color: #fff
+        }
+
+        #menu-btn {
+            display: none !important
+        }
+
+        .login-form {
+            position: absolute;
+            top: 110%;
+            right: -110%;
+            width: 32rem;
+            background: #fff;
+            box-shadow: var(--shadow);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center
+        }
+
+        .login-form.active {
+            right: 2rem
+        }
+
+        .login-form h3 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem
+        }
+
+        .login-form .box {
+            width: 100%;
+            margin: .7rem 0;
+            padding: 1rem 1.4rem;
+            font-size: 1.6rem;
+            background: var(--bg);
+            border-radius: .5rem;
+            text-transform: none
+        }
+
+        .login-form .remember {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            font-size: 1.4rem;
+            color: var(--light);
+            margin: .5rem 0
+        }
+
+        /* home */
+        .home {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 12rem;
+            background: linear-gradient(rgba(45, 90, 61, .55), rgba(45, 90, 61, .55)), url(https://loremflickr.com/1600/900/savanna,safari?lock=1) center/cover no-repeat, var(--dark)
+        }
+
+        .home .content h3 {
+            font-size: 6rem;
+            line-height: 1.2;
+            color: #fff;
+            text-shadow: 0 .3rem 1rem rgba(0, 0, 0, .3)
+        }
+
+        .home .wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 12rem
+        }
+
+        /* about */
+        .about .box-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap
+        }
+
+        .about .box-container .image {
+            flex: 1 1 40rem
+        }
+
+        .about .image img,
+        .banner .image img {
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow)
+        }
+
+        .about .box-container .content {
+            flex: 1 1 40rem
+        }
+
+        .about .content p {
+            font-size: 1.6rem;
+            color: var(--light);
+            line-height: 2;
+            padding: 1rem 0;
+            text-transform: none
+        }
+
+        .about .icons-container {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem
+        }
+
+        .about .icons-container .icons {
+            flex: 1 1 12rem;
+            text-align: center;
+            background: #fff;
+            border-radius: 1rem;
+            padding: 2rem 1rem;
+            box-shadow: var(--shadow)
+        }
+
+        .about .icons i {
+            font-size: 3.5rem;
+            color: var(--main)
+        }
+
+        .about .icons h3 {
+            font-size: 1.6rem;
+            color: var(--black);
+            margin-top: .8rem
+        }
+
+        /* gallery */
+        .gallery-slider {
+            position: relative
+        }
+
+        .swiper-wrapper {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 1rem .5rem 2rem;
+            scrollbar-width: none
+        }
+
+        .swiper-wrapper::-webkit-scrollbar {
+            display: none
+        }
+
+        .gallery .slide {
+            flex: 0 0 calc((100% - 4rem)/3);
+            scroll-snap-align: start;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: #ddd
+        }
+
+        .gallery .slide img {
+            width: 100%;
+            height: 30rem;
+            object-fit: cover;
+            display: block
+        }
+
+        .gallery .slide:hover img {
+            transform: scale(1.08)
+        }
+
+        .gallery .slide .image {
+            overflow: hidden
+        }
+
+        .gallery-slider .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 5rem;
+            width: 5rem;
+            border-radius: 50%;
+            background: var(--main);
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2;
+            box-shadow: var(--shadow)
+        }
+
+        .gallery-slider .nav:hover {
+            background: var(--dark)
+        }
+
+        .gallery-slider .prev {
+            left: -1.5rem
+        }
+
+        .gallery-slider .next {
+            right: -1.5rem
+        }
+
+        /* animals */
+        .animal .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+            gap: 2rem
+        }
+
+        .animal .box {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 32rem;
+            background: #ccc
+        }
+
+        .animal .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .animal .box .content {
+            position: absolute;
+            inset: auto 0 -100% 0;
+            padding: 2rem;
+            text-align: center;
+            background: linear-gradient(transparent, rgba(0, 0, 0, .8))
+        }
+
+        .animal .box:hover .content {
+            bottom: 0
+        }
+
+        .animal .box:hover img {
+            transform: scale(1.1)
+        }
+
+        .animal .content h3 {
+            font-size: 2.5rem;
+            color: #fff
+        }
+
+        /* banner */
+        .banner {
+            background: var(--dark)
+        }
+
+        .banner .row {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap
+        }
+
+        .banner .row .content {
+            flex: 1 1 40rem
+        }
+
+        .banner .row .image {
+            flex: 1 1 30rem;
+            text-align: center
+        }
+
+        .banner .content h3 {
+            font-size: 4rem;
+            color: #fff
+        }
+
+        .banner .content p {
+            font-size: 1.6rem;
+            color: #ddd;
+            line-height: 2;
+            padding: 1rem 0;
+            text-transform: none
+        }
+
+        /* pricing */
+        .pricing .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+            gap: 2rem
+        }
+
+        .pricing .box {
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: .5rem solid var(--main)
+        }
+
+        .pricing .box:hover {
+            transform: translateY(-.8rem)
+        }
+
+        .pricing .box img {
+            height: 16rem;
+            width: 100%;
+            object-fit: cover;
+            border-radius: .8rem;
+            margin-bottom: 1rem
+        }
+
+        .pricing .box h3 {
+            font-size: 2.5rem;
+            color: var(--dark)
+        }
+
+        .pricing .price {
+            font-size: 4rem;
+            color: var(--main);
+            margin: 1rem 0
+        }
+
+        .pricing .box p {
+            font-size: 1.5rem;
+            color: var(--light)
+        }
+
+        /* contact */
+        .contact form {
+            max-width: 70rem;
+            margin: auto;
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            text-align: center
+        }
+
+        .contact .inputBox {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap
+        }
+
+        .contact input,
+        .contact textarea {
+            flex: 1 1 20rem;
+            width: 100%;
+            margin: .8rem 0;
+            padding: 1.2rem 1.5rem;
+            font-size: 1.6rem;
+            background: var(--bg);
+            border-radius: .5rem;
+            text-transform: none
+        }
+
+        .contact textarea {
+            resize: none;
+            height: 15rem
+        }
+
+        /* footer */
+        .footer {
+            background: #1b1b1b;
+            padding-bottom: 2rem
+        }
+
+        .footer .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+            gap: 3rem
+        }
+
+        .footer .box h3 {
+            font-size: 2.3rem;
+            color: #fff;
+            margin-bottom: 1.2rem
+        }
+
+        .footer .box h3 i {
+            color: var(--main)
+        }
+
+        .footer .box p,
+        .footer .box .links {
+            display: block;
+            font-size: 1.5rem;
+            color: #bbb;
+            padding: .5rem 0
+        }
+
+        .footer .box .links i {
+            color: var(--main);
+            margin-right: .7rem
+        }
+
+        .footer .box .links:hover {
+            color: var(--main);
+            padding-left: .8rem
+        }
+
+        .footer .box .email {
+            width: 100%;
+            padding: 1rem 1.4rem;
+            font-size: 1.5rem;
+            border-radius: .5rem;
+            margin: .8rem 0;
+            text-transform: none
+        }
+
+        .footer .share {
+            margin-top: 1.5rem
+        }
+
+        .footer .share a {
+            display: inline-block;
+            height: 4rem;
+            width: 4rem;
+            line-height: 4rem;
+            text-align: center;
+            border-radius: 50%;
+            background: #333;
+            color: #fff;
+            font-size: 1.6rem;
+            margin-right: .5rem
+        }
+
+        .footer .share a:hover {
+            background: var(--main)
+        }
+
+        .footer .credit {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 1.5rem;
+            color: #bbb
+        }
+
+        .footer .credit .link {
+            color: var(--main)
+        }
+
+        /* responsive */
+        @media(max-width:991px) {
+            html {
+                font-size: 55%
+            }
+
+            .header {
+                padding: 1.8rem 4%
+            }
+
+            section {
+                padding: 5rem 4%
+            }
+
+            .gallery .slide {
+                flex-basis: calc((100% - 2rem)/2)
+            }
+        }
+
+        @media(max-width:768px) {
+            #menu-btn {
+                display: inline-block !important
+            }
+
+            .header .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                box-shadow: var(--shadow);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0)
+            }
+
+            .header .navbar.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+            }
+
+            .header .navbar a {
+                display: block;
+                margin: 1.5rem;
+                padding: 1rem;
+                font-size: 2rem
+            }
+
+            .home .content h3 {
+                font-size: 4.2rem
+            }
+
+            .gallery .slide {
+                flex-basis: 100%
+            }
+
+            .gallery-slider .prev {
+                left: .5rem
+            }
+ 
+            .gallery-slider .next {
+                right: .5rem
+            }
+        }
+
+        @media(max-width:450px) {
+            html {
+                font-size: 50%
+            }
+
+            .login-form {
+                width: calc(100% - 3rem)
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- header -->
+    <header class="header">
+        <a href="#" class="logo"> <i class="fas fa-paw"></i> zoo</a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#gallery">gallery</a>
+            <a href="#animal">animal</a>
+            <a href="#pricing">pricing</a>
+            <a href="#contact">contact</a>
+        </nav>
+
+        <div class="icons">
+            <div id="login-btn" class="fas fa-user"></div>
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </div>
+
+        <!-- login form -->
+        <form action="" class="login-form">
+            <h3>login form</h3>
+            <input type="email" placeholder="Enter your email" class="box">
+            <input type="password" placeholder="Enter your password" class="box">
+            <div class="remember">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me">remember me</label>
+            </div>
+            <a href="#" class="btn">login</a>
+        </form>
+    </header>
+    <!-- end -->
+
+    <!-- home -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>enjoy the wonderful <br>
+                adventure of the <br> animals</h3>
+            <a href="#" class="btn">meet the zoo</a>
+        </div>
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'><path fill='%23fff7ee' d='M0 60C240 120 480 0 720 40s480 80 720 20v60H0z'/></svg>"
+            alt="" class="wave">
+    </section>
+    <!-- end -->
+
+    <!-- about -->
+    <section class="about" id="about">
+        <h2 class="deco-title">About us</h2>
+        <div class="box-container">
+            <div class="image">
+                <img src="https://loremflickr.com/800/600/zoo,lion?lock=2" alt="">
+            </div>
+            <div class="content">
+                <h3 class="title">you can find all the most popular species</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Nesciunt temporibus ipsum consectetur asperiores modi ratione.
+                    Sit, dolores voluptas consequuntur dolor tempore quibusdam est
+                    obcaecati possimus omnis, officiis molestias et sapiente.</p>
+                <div class="icons-container">
+                    <div class="icons">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>we educate</h3>
+                    </div>
+                    <div class="icons">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>we play</h3>
+                    </div>
+                    <div class="icons">
+                        <i class="fas fa-book-open"></i>
+                        <h3>getting to know</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end -->
+
+    <!-- gallery -->
+    <section class="gallery" id="gallery">
+        <h2 class="heading">gallery</h2>
+        <div class="swiper gallery-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide">
+                    <div class="image"><img src="https://loremflickr.com/800/600/zoo,elephant?lock=3" alt=""></div>
+                </div>
+                <div class="swiper-slide slide">
+                    <div class="image"><img src="https://loremflickr.com/800/600/zoo,tiger?lock=4" alt=""></div>
+                </div>
+                <div class="swiper-slide slide">
+                    <div class="image"><img src="https://loremflickr.com/800/600/zoo,penguin?lock=5" alt=""></div>
+                </div>
+                <div class="swiper-slide slide">
+                    <div class="image"><img src="https://loremflickr.com/800/600/zoo,parrot?lock=6" alt=""></div>
+                </div>
+            </div>
+            <button type="button" class="nav prev fas fa-chevron-left" aria-label="Previous"></button>
+            <button type="button" class="nav next fas fa-chevron-right" aria-label="Next"></button>
+        </div>
+    </section>
+    <!-- end -->
+
+    <!-- animals -->
+    <section class="animal" id="animal">
+        <h2 class="heading">animals</h2>
+        <div class="box-container">
+            <div class="box">
+                <img src="https://loremflickr.com/600/700/chameleon?lock=7" alt="">
+                <div class="content">
+                    <h3>cameleon</h3><a href="#" class="btn">see datails</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://loremflickr.com/600/700/zebra?lock=8" alt="">
+                <div class="content">
+                    <h3>zebra</h3><a href="#" class="btn">see datails</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://loremflickr.com/600/700/giraffe?lock=9" alt="">
+                <div class="content">
+                    <h3>giraffe</h3><a href="#" class="btn">see datails</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://loremflickr.com/600/700/monkey?lock=10" alt="">
+                <div class="content">
+                    <h3>monkey</h3><a href="#" class="btn">see datails</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end -->
+
+    <!-- banner -->
+    <section class="banner">
+        <div class="row">
+            <div class="content">
+                <h3>stay with pets</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Saepe doloremque rem reiciendis beatae, ut tempora. Et dolorem enim, iusto autem eaque harum.
+                    Ex praesentium commodi sequi culpa eius fugit vel.</p>
+            </div>
+            <div class="image">
+                <img src="https://loremflickr.com/700/500/panda?lock=11" alt="">
+            </div>
+        </div>
+    </section>
+    <!-- end -->
+
+    <!-- pricing -->
+    <section class="pricing" id="pricing">
+        <h2 class="heading">pricing</h2>
+        <div class="box-container">
+            <div class="box">
+                <img src="https://loremflickr.com/400/300/zoo,kids?lock=12" alt="">
+                <h3>individuals</h3>
+                <h4 class="price">$ 10</h4>
+                <p>the entrance is from 8:00 to 14:00</p>
+            </div>
+            <div class="box">
+                <img src="https://loremflickr.com/400/300/zoo,school?lock=13" alt="">
+                <h3>school</h3>
+                <h4 class="price">$ 20</h4>
+                <p>the entrance is from 8:00 to 14:00</p>
+            </div>
+            <div class="box">
+                <img src="https://loremflickr.com/400/300/zoo,kids?lock=12" alt="">
+                <h3>family</h3>
+                <h4 class="price">$ 30</h4>
+                <p>the entrance is from 8:00 to 14:00</p>
+            </div>
+        </div>
+    </section>
+    <!-- end -->
+
+    <!-- contact -->
+    <section class="contact" id="contact">
+        <h2 class="heading">contact</h2>
+        <form action="">
+            <div class="inputBox">
+                <input type="text" placeholder="name">
+                <input type="email" placeholder="email">
+            </div>
+            <div class="inputBox">
+                <input type="number" placeholder="number">
+                <input type="text" placeholder="subject">
+            </div>
+            <textarea name="" id="" cols="30" rows="10" placeholder="meassage"></textarea>
+            <a href="#" class="btn">send message</a>
+        </form>
+    </section>
+    <!-- end -->
+
+    <!-- footer -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3><i class="fas fa-paw"></i> zoo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p class="links"><i class="fas fa-clock"></i>monday - friday</p>
+                <p class="days">7:00AM - 11:00PM</p>
+            </div>
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="#" class="links"><i class="fas fa-phone"></i> 1245-147-2589</a>
+                <a href="#" class="links"><i class="fas fa-phone"></i> 1245-147-2589</a>
+                <a href="#" class="links"><i class="fas fa-envelope"></i> info@zoolife.com</a>
+                <a href="#" class="links"><i class="fas fa-map-marker-alt"></i> karachi, pakistan</a>
+            </div>
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#home" class="links"><i class="fas fa-arrow-right"></i>home</a>
+                <a href="#about" class="links"><i class="fas fa-arrow-right"></i>about</a>
+                <a href="#gallery" class="links"><i class="fas fa-arrow-right"></i>gallery</a>
+                <a href="#animal" class="links"><i class="fas fa-arrow-right"></i>animal</a>
+                <a href="#pricing" class="links"><i class="fas fa-arrow-right"></i>pricing</a>
+            </div>
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <input type="email" placeholder="Your Email" class="email">
+                <a href="#" class="btn">subscribe</a>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+        </div>
+        <div class="credit">&copy; 2022 zoolife. All rights reserved by <a href="#" class="link">ninjashub</a></div>
+    </section>
+    <!-- end -->
+
+    <script>
+        const loginForm = document.querySelector('.login-form');
+        const navbar = document.querySelector('.navbar');
+
+        document.querySelector('#login-btn').onclick = () => {
+            loginForm.classList.toggle('active');
+            navbar.classList.remove('active');
+        };
+
+        document.querySelector('#menu-btn').onclick = () => {
+            navbar.classList.toggle('active');
+            loginForm.classList.remove('active');
+        };
+
+        window.onscroll = () => {
+            loginForm.classList.remove('active');
+            navbar.classList.remove('active');
+            // link ativo conforme a secção visível
+            document.querySelectorAll('section[id]').forEach(sec => {
+                const top = window.scrollY + 120;
+                if (top >= sec.offsetTop && top < sec.offsetTop + sec.offsetHeight) {
+                    document.querySelectorAll('.navbar a').forEach(a => {
+                        a.classList.toggle('active', a.getAttribute('href') === '#' + sec.id);
+                    });
+                }
+            });
+        };
+
+        // galeria (slider sem dependências)
+        const track = document.querySelector('.swiper-wrapper');
+        const step = () => track.querySelector('.slide').offsetWidth + 20;
+        const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 5;
+        document.querySelector('.gallery-slider .next').onclick = () =>
+            atEnd() ? track.scrollTo({ left: 0 }) : track.scrollBy({ left: step() });
+        document.querySelector('.gallery-slider .prev').onclick = () =>
+            track.scrollLeft <= 5 ? track.scrollTo({ left: track.scrollWidth }) : track.scrollBy({ left: -step() });
+        setInterval(() => atEnd() ? track.scrollTo({ left: 0 }) : track.scrollBy({ left: step() }), 4000);
+
+        // os botões "login/send/subscribe" são <a href="#">: evita saltar para o topo
+        document.querySelectorAll('a[href="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+    </script>
+</body>
+
+</html>

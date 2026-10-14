@@ -1,15 +1,17 @@
-    <header>
-            <span class="logo">Zoo</span>
-            <nav>
-                <a href="add.php" class="add">+</a> 
-                <a href="index.php">Home</a>
-                <a href="profile.php?id=<?php echo $_SESSION['user_id']; ?>">Profile</a>
-                <a href="logout.php">Terminar sessão</a>
-                <form action="api/pesquisar.php" method="post">
-                    <input type="text" placeholder="Pesquise..." name="pesquisa" required>
- 
-                    <button type="submit"><img src="assets/images/search-interface-symbol.png" alt=""></button>
+    <header class="header">
+        <a href="#" class="logo"> <i class="fas fa-paw"></i> zoo</a>
 
-                </form>
-            </nav>
-        </header>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#gallery">gallery</a>
+            <a href="#animal">animal</a>
+            <a href="#pricing">pricing</a>
+            <a href="#contact">contact</a>
+        </nav>
+
+        <div class="icons">
+            <div id="login-btn" class="fas fa-user"></div>
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </div>
+    </header>
