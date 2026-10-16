@@ -1,46 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-pt">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início - Zoo de Picoas</title>
-    
-    <!-- Google Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Estilos CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+<?php 
 
-<!-- Header Principal -->
-<header class="header">
-    <a href="index.php" class="logo">
-        <i class="fas fa-paw"></i> Zoo de Picoas
-    </a>
 
-    <nav class="navbar">
-        <a href="#home" class="active">Início</a>
-        <a href="#about">Sobre Nós</a>
-        <a href="#gallery">Galeria</a>
-        <a href="#animal">Animais</a>
-        <a href="#pricing">Preçário</a>
-        <a href="#contact">Contacto</a>
-    </nav>
-
-    <div class="icons">
-        <a href="login.php" class="icon-btn login-direct-btn" title="Iniciar Sessão / Registar">
-            <i class="fas fa-user"></i>
-        </a>
-        <div id="menu-btn" class="fas fa-bars" title="Menu de Navegação"></div>
-    </div>
-</header>
+require_once "./includes/html.php";
+require_once "./includes/header.php";
+?>
 
 <!-- Secção Hero / Início -->
 <section class="home" id="home">
@@ -203,14 +166,6 @@
     </form>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="credit">
-        &copy; 2026 <span>Zoo de Picoas</span> - Projeto PHP - André Martins 219. Todos os direitos reservados.
-    </div>
-</footer>
-
-<!-- Javascript Principal -->
-<script src="assets/js/script.js"></script>
-</body>
-</html>
+<?php 
+require_once "./includes/footer.php";
+?>
