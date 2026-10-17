@@ -152,7 +152,7 @@ require_once "./includes/header.php";
 <!-- Secção Formulário de Contacto -->
 <section class="contact" id="contact">
     <h2 class="heading">Fale Connosco</h2>
-    <form action="#" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');">
+    <form action="#" method="post">
         <div class="inputBox">
             <input type="text" placeholder="O seu nome completo" required>
             <input type="email" placeholder="O seu e-mail" required>

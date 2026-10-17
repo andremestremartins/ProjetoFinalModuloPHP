@@ -1,0 +1,85 @@
+
+.heading {
+    text-align: center;
+    font-size: 38px;
+    color: var(--dark);
+    margin-bottom: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.deco-title {
+    text-align: center;
+    font-size: 38px;
+    color: var(--dark);
+    margin-bottom: 35px;
+    font-weight: 700;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--main);
+        margin: 8px auto 0;
+        border-radius: 10px;
+    }
+}
+
+.title {
+    font-size: 28px;
+    color: var(--black);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 32px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    background: var(--main);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+
+    &:hover {
+        background: var(--dark);
+        letter-spacing: 0.5px;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-hover);
+    }
+}
+
+.btn-secondary {
+    background: var(--dark);
+
+    &:hover {
+        background: var(--main);
+    }
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--dark);
+    border: 2px solid var(--dark);
+    box-shadow: none;
+
+    &:hover {
+        background: var(--dark);
+        color: #fff;
+    }
+}
+
+.btn-danger {
+    background: #e63946;
+
+    &:hover {
+        background: #c1121f;
+    }
+}

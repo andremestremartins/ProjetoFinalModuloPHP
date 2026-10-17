@@ -1,0 +1,107 @@
+.footer {
+    background: #19231c;
+    padding: 60px 9% 20px;
+    margin-top: auto;
+
+    .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 35px;
+
+        .box {
+            h3 {
+                font-size: 22px;
+                color: #fff;
+                margin-bottom: 16px;
+                font-weight: 600;
+
+                i {
+                    color: var(--main);
+                }
+            }
+
+            p,
+            .links {
+                display: block;
+                font-size: 15px;
+                color: #bbb;
+                padding: 6px 0;
+                text-transform: none;
+                line-height: 1.6;
+            }
+
+            .links {
+                i {
+                    color: var(--main);
+                    margin-right: 8px;
+                }
+
+                &:hover {
+                    color: var(--main);
+                    padding-left: 8px;
+                }
+            }
+
+            .days {
+                color: var(--main);
+                font-weight: 600;
+                font-size: 16px;
+            }
+
+            .email {
+                width: 100%;
+                padding: 12px 14px;
+                font-size: 14px;
+                border-radius: var(--radius-sm);
+                margin: 8px 0 10px;
+                text-transform: none;
+                background: #27372c;
+                color: #fff;
+                border: 1px solid #374d3e;
+
+                &:focus {
+                    border-color: var(--main);
+                }
+            }
+        }
+    }
+
+    .share {
+        margin-top: 18px;
+        display: flex;
+        gap: 8px;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 42px;
+            width: 42px;
+            border-radius: 50%;
+            background: #27372c;
+            color: #fff;
+            font-size: 18px;
+            transition: var(--transition);
+
+            &:hover {
+                background: var(--main);
+                transform: translateY(-3px);
+            }
+        }
+    }
+
+    .credit {
+        text-align: center;
+        font-size: 14px;
+        color: #aaa;
+        text-transform: none;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+        span {
+            color: var(--main);
+            font-weight: 600;
+        }
+    }
+}

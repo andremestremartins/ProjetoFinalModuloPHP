@@ -1,0 +1,21 @@
+
+:root {
+    --main: #ff8a2b;
+    --main-dark: #e0741c;
+    --dark: #2d5a3d;
+    --dark-hover: #22452e;
+    --black: #222222;
+    --light: #666666;
+    --bg: #fff7ee;
+    --white: #ffffff;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --border: #f0e2d3;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+    --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.15);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-full: 50px;
+    --transition: all .25s ease-in-out;
+}
