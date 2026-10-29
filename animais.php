@@ -8,19 +8,16 @@ require_once "./includes/header.php";
     <div class="animais-topo">
         <h1>Animais do Zoo</h1>
         <p>Conheça todas as espécies fascinantes que vivem no Zoo de Picoas.</p>
+        <br>
+        <h3>Pesquise o seu Animal ou procure pelos filtros</h3>
     </div>
+    <form class="searchzone" action="animal.php" method="GET"> 
+        <input type="text" name="animal" placeholder="Pesquise aqui ..." id = "animalInput">
+        <button type="submit" class="pesquisebtn"><i class="fas fa-search"></i></button>
 
+    </form>
     <form class="filtroszone" action="animais.php" method="GET">
 
-        <div class="filtro">
-            <label for="pesquisa">Pesquisar animal</label>
-            <input
-                type="search"
-                id="pesquisa"
-                name="pesquisa"
-                placeholder="Nome do animal..."
-                value="<?= htmlspecialchars($_GET['pesquisa'] ?? '') ?>">
-        </div>
 
         <div class="filtro">
             <label for="especie">Espécie</label>
@@ -82,7 +79,7 @@ require_once "./includes/header.php";
 
         <div class="filtros-acoes">
             <button type="submit">Filtrar animais</button>
-            <a href="animais.php">Limpar filtros</a>
+            <a href="animais.php"><i class="fas fa-trash"></i></a>
         </div>
 
     </form>
